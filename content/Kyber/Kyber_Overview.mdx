@@ -1,0 +1,23 @@
+---
+title: "Kyber Overview"
+metaTitle: "Syntax High this page"
+metaDescription: "This is the mescription for this page"
+---
+
+import Flowchart from "../../src/components/Flowchart.jsx"
+
+
+
+## Overview
+Kyber is built upon the M-LWE assumption, from which Kyber derives a IND-CPA PKE scheme.
+
+In order to reduce its bandwith, the real Kyber.PKE compresses its ciphertext and public key,
+claiming that without lossing its security and correctness.
+
+Finally, Kyber applys FO transformation with implicit rejection to Kyber.PKE, also with a slight tweak.
+This gives IND-CCA Kyber.KEM. 
+
+
+
+
+<Flowchart/>
