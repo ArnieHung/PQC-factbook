@@ -3,25 +3,26 @@ title: "IND-CPA PKE without Compression"
 metaTitle: "Syntax High this page"
 metaDescription: "This is the mescription for this page"
 ---
-
 ## Construction
 
 * KeyGen():
+
 $$
-\begin{align*}
+\begin{array}{ll}
 &  A \leftarrow R^{k\times k}_{q} \\
 &  (s, e)\leftarrow\beta^{k}_{\eta}\times\beta^{k}_{\eta} \\
 &  pk =(A,t=As+e) \\
 &  sk =s\\
 
 &  return (pk, sk)
-\end{align*}
+\end{array}
+
 $$
 
 * Enc(pk, m):
-$$
 
-\begin{align*}
+$$
+\begin{array}{ll}
 
 &      (r, e_1, e_2) \leftarrow\beta^{k}_{\eta}\times\beta^{k}_{\eta}\times\beta_{\eta} \\
 
@@ -53,37 +54,38 @@ $$
 &      return (u, v)
 
 
-\end{align*}
-
+\end{array}
 
 $$
 
 * Dec(sk=s, c=(u, v)):
 
-
 for each coefficients in $v - s^{T}u$ :
 decode to
+
 $$
-        \begin{cases}
+\begin{cases}
           1, & \text{if it is closer to q/2} \\
           0, & \text{otherwise}
         \end{cases}
+
 $$
-
-
 
 ## Correctness
 
 In decryption algorithm Dec,
 we have
+
 $$
-  v - s^{T}u = \\
+v - s^{T}u = \\
              = \\
+
 $$
 
 ## Security
 
 Consider encryption algorithm Enc,by first applying k-dim MLWE we have
+
 $$
 \begin{bmatrix}
           & A^{T} &  \\
@@ -97,11 +99,13 @@ $$
           & U &  \\
 \end{bmatrix}
 \text{,where u}\leftarrow R^{k}_{q} \text{; } U \leftarrow R^{(k+1)\times k}_{q} \\
+
 $$
 
 Now the encryption becomes
+
 $$
-      \begin{bmatrix}
+\begin{bmatrix}
                 & U &
       \end{bmatrix}
 
@@ -118,9 +122,11 @@ $$
                 & 0 &  \\
                 & m\cdot\frac{q}{2} &  \\
       \end{bmatrix} \\
+
 $$
 
 Applying (k+1)-dim MLWE assumption,
+
 $$
 \begin{bmatrix}
           & U &
@@ -138,6 +144,7 @@ $$
           & U' &
 \end{bmatrix}
 \text{,where } U' \leftarrow R^{(k+1)\times k}_{q}
+
 $$
 
 Then the encryption becomes
@@ -150,6 +157,7 @@ $$
           & 0 &  \\
           & m\cdot\frac{q}{2} &  \\
 \end{bmatrix} \\
+
 $$
 
-which is uniformly random and independent of the plaintext. Thus, the encryption achieves IND-CPA security. 
+which is uniformly random and independent of the plaintext. Thus, the encryption achieves IND-CPA security.
