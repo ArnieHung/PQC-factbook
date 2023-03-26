@@ -1,8 +1,8 @@
 import React from "react"
-import ReactFlow from 'react-flow-renderer';
+import ReactFlow from 'reactflow';
 import HomePageThemeProvider from '../components/theme/HomePageThemeProvider.js';
 import Lattice from '../components/teasers/Lattice.js';
-import styled from '@emotion/styled';
+import styled from '@emotion/styled-base';
 import { Flex, Box } from 'reflexbox';
 import { getThemeColor, getThemeSpacePx } from '../utils/css-utils';
 

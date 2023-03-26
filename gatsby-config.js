@@ -21,30 +21,49 @@ const plugins = [
       path: `${__dirname}/content/`
     }
   },
+  // {
+  //   resolve: 'gatsby-plugin-mdx',
+  //   options: {
+  //     gatsbyRemarkPlugins: [
+  //       {
+  //         resolve: "gatsby-remark-images",
+  //         options: {
+  //           maxWidth: 1035,
+  //           sizeByPixelDensity: true
+  //         }
+  //       },
+  //       {
+  //         resolve: `gatsby-remark-katex`,
+  //         options: {
+  //           // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
+  //           strict: `ignore`
+  //         }
+  //       },
+  //       {
+  //         resolve: 'gatsby-remark-copy-linked-files'
+  //       }
+  //     ],
+  //     extensions: [".mdx", ".md"]
+  //   }
+  // },
   {
-    resolve: 'gatsby-plugin-mdx',
+    resolve: `gatsby-transformer-remark`,
     options: {
-      gatsbyRemarkPlugins: [
-        {
-          resolve: "gatsby-remark-images",
-          options: {
-            maxWidth: 1035,
-            sizeByPixelDensity: true
-          }
-        },
-        {
-          resolve: `gatsby-remark-katex`,
-          options: {
-            // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
-            strict: `ignore`
-          }
-        },
-        {
-          resolve: 'gatsby-remark-copy-linked-files'
+      gfm: true,
+      footnotes: true,
+      // blocks: ["h2"], Blocks option value can be provided here as an array.
+      excerpt_separator: `<!-- end -->`,
+      plugins: [
+      {
+        resolve: "gatsby-remark-images",
+        options: {
+          maxWidth: 1035,
+          sizeByPixelDensity: true
         }
+      },
+        `gatsby-remark-katex`,
       ],
-      extensions: [".mdx", ".md"]
-    }
+    },
   },
   {
     resolve: `gatsby-plugin-gtag`,
@@ -88,12 +107,13 @@ if (config.pwa && config.pwa.enabled && config.pwa.manifest) {
 }
 
 // check and remove trailing slash
-if (config.gatsby && !config.gatsby.trailingSlash) {
-  plugins.push('gatsby-plugin-remove-trailing-slashes');
-}
+// if (config.gatsby && !config.gatsby.trailingSlash) {
+//   plugins.push('gatsby-plugin-remove-trailing-slashes');
+// }
 
 module.exports = {
   pathPrefix: config.gatsby.pathPrefix,
+  trailingSlash: "always",
   siteMetadata: {
     title: config.siteMetadata.title,
     description: config.siteMetadata.description,

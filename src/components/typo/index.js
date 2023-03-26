@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled-base';
 import { Box } from 'reflexbox';
 
 import { getThemeSpacePx, getThemeColor, device } from '../../utils/css-utils.js';

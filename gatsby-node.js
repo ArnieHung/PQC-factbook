@@ -1,10 +1,18 @@
-const componentWithMDXScope = require('gatsby-plugin-mdx/component-with-mdx-scope');
+/* eslint-disable no-unused-vars */
 
 const path = require('path');
 
 const startCase = require('lodash.startcase');
 
+// eslint-disable-next-line no-unused-vars
+const _ = require(`lodash`)
+
+const { slash } = require(`gatsby-core-utils`)
+
+// const LodashModuleReplacementPlugin = require(`lodash-webpack-plugin`)
+
 const config = require('./config');
+
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -61,6 +69,14 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     },
   });
 };
+// exports.onCreateWebpackConfig = ({ stage, actions }) => {
+//   switch (stage) {
+//     case `build-javascript`:
+//       actions.setWebpackConfig({
+//         plugins: [new LodashModuleReplacementPlugin()],
+//       });
+//   };
+// };
 
 exports.onCreateBabelConfig = ({ actions }) => {
   actions.setBabelPlugin({
