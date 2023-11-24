@@ -1,4 +1,4 @@
-FROM node:buster
+FROM node:20.9-buster
 
 # Create app directory
 WORKDIR /app
