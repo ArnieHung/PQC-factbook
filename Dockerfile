@@ -1,4 +1,4 @@
-FROM node:buster
+FROM node:iron-buster
 
 # Create app directory
 WORKDIR /app
