@@ -67,7 +67,7 @@
     "reactflow": "^11.6.1",
     "reflexbox": "^4.0.6",
     "rehype-katex": "4.0.0",
-    "remark-html-katex": "^3.0.0",
+    "remark-html-katex": "^5.0.0",
     "remark-math": "3.0.1",
     "remark-parse": "^10.0.1",
     "sharp": "^0.30.7",
