@@ -70,7 +70,7 @@
     "remark-html-katex": "^3.0.0",
     "remark-math": "3.0.1",
     "remark-parse": "^10.0.1",
-    "sharp": "^0.30.7",
+    "sharp": "^0.33.0",
     "styled-components": "^4.4.1",
     "styled-icons": "^9.0.1"
   },
